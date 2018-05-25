@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_mioms_vsts_integ.InputsManager</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>InputsManager</name>
+        <script><![CDATA[var vstsmetadatafieldname = 'x_mioms_vsts_integ_vsts_meta_data';
+var vstsmetadatainput = 'vstsmetadata';
+var additionalparamsinput = 'additionalparams';
+
+var specialfieldslist = {"specialfields":[{"key":"assignment_group","value":{"tablename":"sys_user_group","queryitems":[{"field":"name","value":"inputval"}],"returnfield":"sys_id"}},{"key":"cmdb_ci","value":{"tablename":"cmdb_ci","queryitems":[{"field":"name","value":"inputval"}],"returnfield":"sys_id"}},{"key":"priority","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"priority"},{"field":"name","value":"change_request"}],"returnfield":"value"}},{"key":"impact","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"impact"}],"returnfield":"value"}},{"key":"risk","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"risk"},{"field":"name","value":"change_request"}],"returnfield":"value"}},{"key":"category","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"category"},{"field":"name","value":"change_request"},{"field":"inactive","op":"!=","value":"true"}],"returnfield":"value"}}]};
+
+var InputsManager = Class.create();
+InputsManager.prototype = {
+    initialize: function() {
+    },
+
+	findspecialfieldvalue: function(fieldkey){
+		var matchingvalue = null;
+		specialfieldslist.specialfields.forEach(function(item){if (item.key == fieldkey) {matchingvalue = item.value;}});
+		return matchingvalue;
+	},
+	
+	replaceinputval: function(searchquery, inputval){
+		var returnVal = {};
+		if (searchquery)
+			{
+				returnVal.tablename = searchquery.tablename;
+				returnVal.queryitems = [];
+				returnVal.returnfield = searchquery.returnfield;
+				searchquery.queryitems.forEach(function(item){if (item.value == 'inputval'){item.value = inputval;} returnVal.queryitems.push(item);});
+			}
+		
+		return returnVal;
+	},
+	
+    type: 'InputsManager'
+};
+
+InputsManager.ParseInputAndCreateChangeObject = function(requestInput)
+{
+	var returnObj = {};
+	
+	if (requestInput)
+		{
+			for (var key in requestInput)
+			{			
+				if (key == vstsmetadatainput)
+					{
+							returnObj[vstsmetadatafieldname] = requestObj[key];
+					}
+				else if (key == additionalparamsinput)
+					{
+						if (requestObj[key])
+								{
+									for(var additionalparam in requestObj[key])
+									{
+										returnObj[additionalparam] = requestObj[key][additionalparam];
+									}
+								}
+					}
+				else 
+					{
+						returnObj[key] = requestObj[key];
+						var inputsManager = new InputsManager();
+						var matchingValforspecialkey = inputsManager.findspecialfieldvalue(key);
+						if (matchingValforspecialkey)
+							{
+								var updatedSearchQuery = inputsManager.replaceinputval(matchingValforspecialkey, requestObj[key]);
+								var queryHelper = new x_mioms_vsts_integ.queryHelper();
+								var queryResponse = queryHelper.executeQuery(updatedSearchQuery);	
+								if (queryResponse)
+									{
+										returnObj[key] = queryResponse[updatedSearchQuery.returnfield];
+									}
+							}
+					}							
+			}
+		}
+	
+	return returnObj;	
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-05-25 18:56:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>50427521db929b80d8f0788dbf961929</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>InputsManager</sys_name>
+        <sys_package display_value="vsts_Integration" source="x_mioms_vsts_integ">9d2281f2dbf55340d8f0788dbf9619c3</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="vsts_Integration">9d2281f2dbf55340d8f0788dbf9619c3</sys_scope>
+        <sys_update_name>sys_script_include_50427521db929b80d8f0788dbf961929</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-05-25 21:56:26</sys_updated_on>
+    </sys_script_include>
+</record_update>

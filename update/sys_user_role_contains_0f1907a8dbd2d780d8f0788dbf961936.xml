@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_user_role_contains">
+    <sys_user_role_contains action="INSERT_OR_UPDATE">
+        <contains display_value="rest_api_explorer" name="rest_api_explorer">d0d45ba0470002004695d7527c9a71c6</contains>
+        <role display_value="x_mioms_vsts_integ.vstsExecution" name="x_mioms_vsts_integ.vstsExecution">c3a8cba8dbd2d780d8f0788dbf961978</role>
+        <sys_class_name>sys_user_role_contains</sys_class_name>
+        <sys_created_by>sheeraz.memon</sys_created_by>
+        <sys_created_on>2018-05-22 22:41:54</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0f1907a8dbd2d780d8f0788dbf961936</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>rest_api_explorer.x_mioms_vsts_integ.vstsRestExecution</sys_name>
+        <sys_package display_value="vsts_Integration" source="x_mioms_vsts_integ">9d2281f2dbf55340d8f0788dbf9619c3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="vsts_Integration">9d2281f2dbf55340d8f0788dbf9619c3</sys_scope>
+        <sys_update_name>sys_user_role_contains_0f1907a8dbd2d780d8f0788dbf961936</sys_update_name>
+        <sys_updated_by>sheeraz.memon</sys_updated_by>
+        <sys_updated_on>2018-05-22 22:41:54</sys_updated_on>
+    </sys_user_role_contains>
+</record_update>

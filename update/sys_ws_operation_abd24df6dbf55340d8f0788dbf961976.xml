@@ -26,8 +26,8 @@
 		}
 		else
 		{
-			var flattenedrequestdata = x_mioms_vsts_integ.globalchangemanagement.parse(event.data);
-			var newchange = x_mioms_vsts_integ.ChangeManager.CreateChange(flattenedrequestdata);
+			var updatedRequestData = InputsManager.ParseInputAndCreateChangeObject(event.data);
+			var newchange = x_mioms_vsts_integ.ChangeManager.CreateChange(updatedRequestData);
 			if (!newchange)
 				{
 					response.setError(new sn_ws_err.ServiceError("New change could not be created for the request"));
@@ -42,7 +42,7 @@
 		response.setBody(responseBody);	
 		}    
 })(request, response);]]></operation_script>
-        <operation_uri>/api/x_mioms_vsts_integ/queryorcreate</operation_uri>
+        <operation_uri>/api/x_mioms_vsts_integ/vstschangeintegration</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
         <produces_customized>false</produces_customized>
         <relative_path>/</relative_path>
@@ -55,7 +55,7 @@
         <sys_created_on>2018-05-04 16:11:39</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>abd24df6dbf55340d8f0788dbf961976</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>queryorcreate</sys_name>
         <sys_package display_value="vsts_Integration" source="x_mioms_vsts_integ">9d2281f2dbf55340d8f0788dbf9619c3</sys_package>
         <sys_policy/>
@@ -63,8 +63,8 @@
         <sys_scope display_value="vsts_Integration">9d2281f2dbf55340d8f0788dbf9619c3</sys_scope>
         <sys_update_name>sys_ws_operation_abd24df6dbf55340d8f0788dbf961976</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-05-25 20:07:58</sys_updated_on>
-        <web_service_definition display_value="queryorcreate">e28249f6dbf55340d8f0788dbf96195c</web_service_definition>
+        <sys_updated_on>2018-05-25 22:15:03</sys_updated_on>
+        <web_service_definition display_value="vstschangeintegration">e28249f6dbf55340d8f0788dbf96195c</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
 </record_update>

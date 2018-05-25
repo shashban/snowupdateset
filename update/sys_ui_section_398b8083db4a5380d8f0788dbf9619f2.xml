@@ -4,14 +4,28 @@
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>x_mioms_vsts_integ_vsts_meta_data</element>
             <position>0</position>
-            <sys_created_by>sheeraz.memon</sys_created_by>
-            <sys_created_on>2018-05-17 17:04:09</sys_created_on>
-            <sys_id>0bdb0883db4a5380d8f0788dbf96199b</sys_id>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-05-25 22:30:47</sys_created_on>
+            <sys_id>a953222ddb569b80d8f0788dbf961931</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="VSTS Integration Info" display_value="VSTS Integration Info" name="change_request" sys_domain="global" view="Default view">398b8083db4a5380d8f0788dbf9619f2</sys_ui_section>
-            <sys_updated_by>sheeraz.memon</sys_updated_by>
-            <sys_updated_on>2018-05-17 17:04:09</sys_updated_on>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-05-25 22:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>x_mioms_vsts_integ_vsts_release_info</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-05-25 22:30:47</sys_created_on>
+            <sys_id>2d53222ddb569b80d8f0788dbf961931</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="VSTS Integration Info" display_value="VSTS Integration Info" name="change_request" sys_domain="global" view="Default view">398b8083db4a5380d8f0788dbf9619f2</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-05-25 22:30:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

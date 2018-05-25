@@ -23,7 +23,7 @@
 		}
 	response.setBody(responseBody);	
 })(request, response);]]></operation_script>
-        <operation_uri>/api/x_mioms_vsts_integ/queryorcreate/test</operation_uri>
+        <operation_uri>/api/x_mioms_vsts_integ/vstschangeintegration/test</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
         <produces_customized>false</produces_customized>
         <relative_path>/test</relative_path>
@@ -45,7 +45,7 @@
         <sys_update_name>sys_ws_operation_46f73129dbd29b80d8f0788dbf96194a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2018-05-25 22:07:10</sys_updated_on>
-        <web_service_definition display_value="queryorcreate">e28249f6dbf55340d8f0788dbf96195c</web_service_definition>
+        <web_service_definition display_value="vstschangeintegration">e28249f6dbf55340d8f0788dbf96195c</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
 </record_update>

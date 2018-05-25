@@ -12,7 +12,7 @@
 var vstsmetadatainput = 'vstsmetadata';
 var additionalparamsinput = 'additionalparams';
 
-var specialfieldslist = {"specialfields":[{"key":"assignment_group","value":{"tablename":"sys_user_group","queryitems":[{"field":"name","value":"inputval"}],"returnfield":"sys_id"}},{"key":"cmdb_ci","value":{"tablename":"cmdb_ci","queryitems":[{"field":"name","value":"inputval"}],"returnfield":"sys_id"}},{"key":"priority","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"priority"},{"field":"name","value":"change_request"}],"returnfield":"value"}},{"key":"impact","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"impact"}],"returnfield":"value"}},{"key":"risk","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"risk"},{"field":"name","value":"change_request"}],"returnfield":"value"}},{"key":"category","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"category"},{"field":"name","value":"change_request"},{"field":"inactive","op":"!=","value":"true"}],"returnfield":"value"}}]};
+var specialfieldslist = {"specialfields":[{"key":"assignment_group","value":{"tablename":"sys_user_group","queryitems":[{"field":"name","value":"inputval"}],"returnfield":"sys_id"}},{"key":"cmdb_ci","value":{"tablename":"cmdb_ci","queryitems":[{"field":"name","value":"inputval"}],"returnfield":"sys_id"}},{"key":"priority","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"priority"},{"field":"name","value":"change_request"}],"returnfield":"value"}},{"key":"impact","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"impact"}],"returnfield":"value"}},{"key":"risk","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"risk"},{"field":"name","value":"change_request"}],"returnfield":"value"}},{"key":"category","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"category"},{"field":"name","value":"change_request"},{"field":"inactive","op":"!=","value":"true"}],"returnfield":"value"}},{"key":"state","value":{"tablename":"sys_choice","queryitems":[{"field":"label","value":"inputval"},{"field":"element","value":"state"},{"field":"name","value":"change_request"}],"returnfield":"value"}}]};
 
 var InputsManager = Class.create();
 InputsManager.prototype = {
@@ -51,26 +51,26 @@ InputsManager.ParseInputAndCreateChangeObject = function(requestInput)
 			{			
 				if (key == vstsmetadatainput)
 					{
-							returnObj[vstsmetadatafieldname] = requestObj[key];
+							returnObj[vstsmetadatafieldname] = requestInput[key];
 					}
 				else if (key == additionalparamsinput)
 					{
-						if (requestObj[key])
+						if (requestInput[key])
 								{
-									for(var additionalparam in requestObj[key])
+									for(var additionalparam in requestInput[key])
 									{
-										returnObj[additionalparam] = requestObj[key][additionalparam];
+										returnObj[additionalparam] = requestInput[key][additionalparam];
 									}
 								}
 					}
 				else 
 					{
-						returnObj[key] = requestObj[key];
+						returnObj[key] = requestInput[key];
 						var inputsManager = new InputsManager();
 						var matchingValforspecialkey = inputsManager.findspecialfieldvalue(key);
 						if (matchingValforspecialkey)
 							{
-								var updatedSearchQuery = inputsManager.replaceinputval(matchingValforspecialkey, requestObj[key]);
+								var updatedSearchQuery = inputsManager.replaceinputval(matchingValforspecialkey, requestInput[key]);
 								var queryHelper = new x_mioms_vsts_integ.queryHelper();
 								var queryResponse = queryHelper.executeQuery(updatedSearchQuery);	
 								if (queryResponse)
@@ -89,7 +89,7 @@ InputsManager.ParseInputAndCreateChangeObject = function(requestInput)
         <sys_created_on>2018-05-25 18:56:35</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>50427521db929b80d8f0788dbf961929</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>InputsManager</sys_name>
         <sys_package display_value="vsts_Integration" source="x_mioms_vsts_integ">9d2281f2dbf55340d8f0788dbf9619c3</sys_package>
         <sys_policy>read</sys_policy>
@@ -97,6 +97,6 @@ InputsManager.ParseInputAndCreateChangeObject = function(requestInput)
         <sys_scope display_value="vsts_Integration">9d2281f2dbf55340d8f0788dbf9619c3</sys_scope>
         <sys_update_name>sys_script_include_50427521db929b80d8f0788dbf961929</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-05-25 21:56:26</sys_updated_on>
+        <sys_updated_on>2018-05-25 22:12:30</sys_updated_on>
     </sys_script_include>
 </record_update>

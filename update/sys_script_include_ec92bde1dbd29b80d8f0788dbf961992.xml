@@ -14,6 +14,7 @@ ChangeManager.prototype = {
     initialize: function() {
     },
 	
+	// Find a change request that matches with the supplied VSTS metadata
 	findChange: function(releasemetadata){	
 	if (releasemetadata)
 	{	
@@ -30,6 +31,9 @@ ChangeManager.prototype = {
     type: 'ChangeManager'
 };
 
+// Static function to get number and state of the change request that matches with the supplied VSTS metadata
+// Input: metadata: VSTSMetadata to match the change request with
+// Output: Json object of the type { "result": { "number": "CHG0030115", "state": "New" } } 
 ChangeManager.FindChangeNumberAndState = function(metadata)
 {
 	var returnObj = {};
@@ -49,6 +53,9 @@ ChangeManager.FindChangeNumberAndState = function(metadata)
 	return returnObj;		
 };
 
+// Static function to create a new change request
+// Input: a flat json with each property matching the corresponding field in change request by name
+// Output: Json object of the type { "result": { "number": "CHG0030115", "state": "New" } } 
 ChangeManager.CreateChange = function(requestObj)
 {
 	var returnObj = {};
@@ -66,6 +73,10 @@ ChangeManager.CreateChange = function(requestObj)
 	return returnObj;	
 };
 
+// Static function to update the change request that matches the supplied metadata
+// Input: metadata: VSTSMetadata to match the change request with
+// Input: a flat json with each property matching the corresponding field in change request by name
+// Output: Json object of the type { "result": { "number": "CHG0030115", "state": "New" } }
 ChangeManager.UpdateChange = function(metadata, requestObj)
 {
 	var returnObj = {};
@@ -90,7 +101,7 @@ ChangeManager.UpdateChange = function(metadata, requestObj)
         <sys_created_on>2018-05-25 18:57:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ec92bde1dbd29b80d8f0788dbf961992</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>ChangeManager</sys_name>
         <sys_package display_value="vsts_Integration" source="x_mioms_vsts_integ">9d2281f2dbf55340d8f0788dbf9619c3</sys_package>
         <sys_policy>read</sys_policy>
@@ -98,6 +109,6 @@ ChangeManager.UpdateChange = function(metadata, requestObj)
         <sys_scope display_value="vsts_Integration">9d2281f2dbf55340d8f0788dbf9619c3</sys_scope>
         <sys_update_name>sys_script_include_ec92bde1dbd29b80d8f0788dbf961992</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-05-27 19:38:28</sys_updated_on>
+        <sys_updated_on>2018-05-27 21:51:29</sys_updated_on>
     </sys_script_include>
 </record_update>

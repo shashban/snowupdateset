@@ -18,24 +18,23 @@
 		}
 	else
 		{
-		var change = x_mioms_vsts_integ.ChangeManager.FindChangeNumberAndState(metadataFromRequest);
+		var change = ChangeManager.FindChangeNumberAndState(metadataFromRequest);
 		if (change && change.number)
 		{
 			responseBody = change;
-			responseBody.method = "matching change request was found for the vsts release metadata";			
-		}
+			responseBody.method = "matching change request was found for the vsts release metadata";			}
 		else
 		{
 			var updatedRequestData = InputsManager.ParseInputAndCreateChangeObject(event.data);
-			var newchange = x_mioms_vsts_integ.ChangeManager.CreateChange(updatedRequestData);
-			if (!newchange)
-				{
-					response.setError(new sn_ws_err.ServiceError("New change could not be created for the request"));
-				}
-			else
+			var newchange = ChangeManager.CreateChange(updatedRequestData);
+			if (newchange && newchange.number)				
 				{
 					responseBody = newchange;
 					responseBody.method = "a new change request was created for the vsts release metadata";		
+				}
+			else
+				{
+					response.setError(new sn_ws_err.ServiceError("New change could not be created for the request"));
 				}
 		}
 			
@@ -55,7 +54,7 @@
         <sys_created_on>2018-05-04 16:11:39</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>abd24df6dbf55340d8f0788dbf961976</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>queryorcreate</sys_name>
         <sys_package display_value="vsts_Integration" source="x_mioms_vsts_integ">9d2281f2dbf55340d8f0788dbf9619c3</sys_package>
         <sys_policy/>
@@ -63,7 +62,7 @@
         <sys_scope display_value="vsts_Integration">9d2281f2dbf55340d8f0788dbf9619c3</sys_scope>
         <sys_update_name>sys_ws_operation_abd24df6dbf55340d8f0788dbf961976</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-05-25 22:15:03</sys_updated_on>
+        <sys_updated_on>2018-05-27 19:41:06</sys_updated_on>
         <web_service_definition display_value="vstschangeintegration">e28249f6dbf55340d8f0788dbf96195c</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>

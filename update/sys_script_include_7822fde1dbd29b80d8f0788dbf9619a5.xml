@@ -57,19 +57,19 @@ queryHelper.prototype = {
 		return null;
 	},
 	
-	updateRecord: function(tablename, originalObj, requestObj)
+	updateRecord: function(originalObj, requestObj)
 	{
 		if (tablename && originalObj && requestObj)
 			{
-				var returnObj = new GlideRecord(tablename);
+				//var returnObj = new GlideRecord(tablename);
 				
 				for (var key in requestObj)
 				{			
 					originalObj[key] = requestObj[key];			
 				}
 
-				returnObj = originalObj.update();
-				return returnObj;
+				return originalObj.update();
+				//return returnObj;
 			}
 		
 		return null;
@@ -82,7 +82,7 @@ queryHelper.prototype = {
         <sys_created_on>2018-05-25 18:56:09</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>7822fde1dbd29b80d8f0788dbf9619a5</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>queryHelper</sys_name>
         <sys_package display_value="vsts_Integration" source="x_mioms_vsts_integ">9d2281f2dbf55340d8f0788dbf9619c3</sys_package>
         <sys_policy>read</sys_policy>
@@ -90,6 +90,6 @@ queryHelper.prototype = {
         <sys_scope display_value="vsts_Integration">9d2281f2dbf55340d8f0788dbf9619c3</sys_scope>
         <sys_update_name>sys_script_include_7822fde1dbd29b80d8f0788dbf9619a5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-05-27 19:03:15</sys_updated_on>
+        <sys_updated_on>2018-05-28 13:37:12</sys_updated_on>
     </sys_script_include>
 </record_update>

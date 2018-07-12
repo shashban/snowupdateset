@@ -83,29 +83,20 @@ InputsManager.ParseInputAndCreateChangeObject = function(requestInput)
 				else if (key == additionalparamsinput)
 					{
 						if (requestInput[key])
+							{
+						var jsonAdditionalParams = JSON.parse(requestInput[key]);
+						if (jsonAdditionalParams)
 								{
-									for(var additionalparam in requestInput[key])
+									for(var additionalparam in jsonAdditionalParams)
 									{	
-										returnObj[additionalparam] = inputsManager.getValtoUseinQuery(additionalparam, requestInput[key][additionalparam]);
-										//returnObj[additionalparam] = requestInput[key][additionalparam];
+										returnObj[additionalparam] = inputsManager.getValtoUseinQuery(additionalparam, jsonAdditionalParams[additionalparam]);										
 									}
 								}
+							}
 					}
 				else 
 					{
-						returnObj[key] = inputsManager.getValtoUseinQuery(key, requestInput[key]);
-						//returnObj[key] = requestInput[key];						
-						//var matchingValforspecialkey = inputsManager.findspecialfieldvalue(key);
-						//if (matchingValforspecialkey)
-						//{
-						//	var updatedSearchQuery = inputsManager.replaceinputval(matchingValforspecialkey, requestInput[key]);
-						//	var queryHelper = new x_mioms_vsts_integ.queryHelper();
-						//	var queryResponse = queryHelper.executeQuery(updatedSearchQuery);	
-						//	if (queryResponse)
-						//	{
-						//		returnObj[key] = queryResponse[updatedSearchQuery.returnfield];
-						//	}
-						//}		
+						returnObj[key] = inputsManager.getValtoUseinQuery(key, requestInput[key]);	
 					}							
 			}
 		}
@@ -117,7 +108,7 @@ InputsManager.ParseInputAndCreateChangeObject = function(requestInput)
         <sys_created_on>2018-05-25 18:56:35</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>50427521db929b80d8f0788dbf961929</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>InputsManager</sys_name>
         <sys_package display_value="vsts_Integration" source="x_mioms_vsts_integ">9d2281f2dbf55340d8f0788dbf9619c3</sys_package>
         <sys_policy>read</sys_policy>
@@ -125,6 +116,6 @@ InputsManager.ParseInputAndCreateChangeObject = function(requestInput)
         <sys_scope display_value="vsts_Integration">9d2281f2dbf55340d8f0788dbf9619c3</sys_scope>
         <sys_update_name>sys_script_include_50427521db929b80d8f0788dbf961929</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-05-27 22:37:42</sys_updated_on>
+        <sys_updated_on>2018-05-28 19:15:24</sys_updated_on>
     </sys_script_include>
 </record_update>
